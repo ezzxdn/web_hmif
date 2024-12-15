@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tentang HMIF Unand</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #00C0C6, #1A2B56);
+      color: #333;
+      position: relative; /* Agar z-index dapat bekerja dengan benar */
+    }
+
+    h1, h2 {
+      font-weight: 600;
+    }
+
+    .dropdown-item:hover {
+      background-color: #00C0C6;
+      color: white;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    section {
+      margin-bottom: 50px;
+      padding-top: 80px;
+    }
+
+    #sejarah, #visi-misi, #divisi {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Navbar */
+    .navbar-dark .navbar-nav .nav-link {
+      color: #FFFFFF;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: #00C0C6;
+      text-shadow: 0 0 5px #00C0C6;
+    }
+
+    /* Lingkaran Dekoratif */
+    .decorative-circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .circle-1 {
+      width: 300px;
+      height: 300px;
+      background-color: #FFFFFF;
+      top: -50px;
+      left: -50px;
+      animation-delay: 0s;
+    }
+
+    .circle-2 {
+      width: 400px;
+      height: 400px;
+      background-color: #AAAAAA;
+      bottom: -100px;
+      right: -50px;
+      animation-delay: 1s;
+    }
+
+    .circle-3 {
+      width: 150px;
+      height: 150px;
+      background-color: #00C0C6;
+      top: 20%;
+      right: 20%;
+      animation-delay: 2s;
+    }
+
+    .decorative-circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float 6s infinite ease-in-out;
+      z-index: -1; /* Pastikan elemen ada di layer belakang */
+    }
+
+    /* Keyframes for Animations */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(15px);
+      }
+    }
+
+    .divisi-icon .circle-placeholder {
+      width: 100px;
+      height: 100px;
+      background-color: #dcdcdc;
+      border-radius: 50%;
+      margin: 0 auto;
+    }
+
+    .circle-placeholder {
+        width: 100px; /* Atur lebar lingkaran */
+        height: 100px; /* Atur tinggi lingkaran */
+        border-radius: 50%; /* Membuat lingkaran */
+        overflow: hidden; /* Menyembunyikan bagian gambar yang keluar dari lingkaran */
+        display: flex; /* Menggunakan flexbox untuk memusatkan gambar */
+        justify-content: center; /* Memusatkan gambar secara horizontal */
+        align-items: center; /* Memusatkan gambar secara vertikal */
+        background-color: #f0f0f0; /* Warna latar belakang lingkaran (opsional) */
+    }
+
+    .circle-placeholder img {
+        width: 100%; /* Mengatur lebar gambar agar sesuai dengan lingkaran */
+        height: auto; /* Mengatur tinggi gambar secara otomatis */
+        object-fit: cover; /* Memastikan gambar terpotong dengan baik */
+    }
+
+    .card {
+      border: none;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+    }
+
+    .row-cols-1 .col {
+      flex: 0 0 100%;
+    }
+
+    .row-cols-md-3 .col {
+      flex: 0 0 33.33333%;
+    }
+
+    footer {
+      background-color: #000;
+      color: white;
+      padding: 1rem 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    footer a {
+      color: #FFF;
+      margin: 0 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    footer a:hover {
+      color: #00C0C6;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #1A2B56;">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+        <img src="img/hmif.png" alt="Logo HMIF" style="height: 40px; margin-right: 10px;">
+        HMIF Unand
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Beranda</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="tentangDropdown" role="button" data-bs-toggle="dropdown">
+              Tentang
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="tentang.html#sejarah">Sejarah</a></li>
+              <li><a class="dropdown-item" href="tentang.html#visi-misi">Visi dan Misi</a></li>
+              <li><a class="dropdown-item" href="tentang.html#divisi">Struktur</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="pengurus.html" id="tentangDropdown" role="button" data-bs-toggle="dropdown">
+              Pengurus
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="kabinet-a.html">Kabinet Budi Utomo (2023/2024)</a></li>
+              <li><a class="dropdown-item" href="edelweiss.html">Kabinet Edelweiss (2024/2025)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link" href="publikasi.html">Publikasi</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Decorative Shapes -->
+  <div class="decorative-circle circle-1"></div>
+  <div class="decorative-circle circle-2"></div>
+  <div class="decorative-circle circle-3"></div>
+
+  <!-- Tentang Page Content -->
+  <main class="container my-5 pt-5">
+    <section id="sejarah">
+      <h1 class="text-primary">Sejarah</h1>
+      <p>Himpunan Mahasiswa Informatika merupakan sebuah wadah berekspresi dan berkembang serta sebagai pengaplikasian baik akademik maupun non-akademik bagi seluruh Mahasiswa Informatika.
+        Himpunan Mahasiswa Program Studi Informatika atau yang lebih dikenal sebagai HMIF merupakan himpunan terbaru dari Fakultas Teknologi Informasi yang berdiri sejak tahun 2023, tepatnya pada hari Selasa, 4 Juli 2023.
+        Pada saat ini, himpunan sudah berjalan pada periode kedua kepengurusan dan telah berhasil melaksanakan berbagai program kerja yang mendukung pengembangan kompetensi serta kreativitas mahasiswa.</p>
+    </section>
+
+    <section id="visi-misi">
+      <h1 class="text-primary">Visi dan Misi</h1>
+      <h2 class="mt-4">Visi</h2>
+      <p>Menciptakan himpunan yang mampu menjadi wadah untuk berekspresi dan berkembang, serta menampung aspirasi bagi anggotanya.</p>
+
+      <h2 class="mt-4">Misi</h2>
+      <ul>
+        <li>Menfasilitasi anggota untuk berkembang sesuai minat dan bakat sesuai minat dan bakat dalam bentuk klub-klub belajar.</li>
+        <li>Menciptakan lingkungan yang kondusif bagi anggotanya dalam melatih komunikasi dan berekspresi secara bebas tanpa terkekang oleh pihak tertentu sesuai batas aturan yang berlaku.</li>
+        <li>Mampu menampung aspirasi anggota demi kepentingan dan kemajuan himpunan tanpa memandang tingkatan atau jabatan anggotanya.</li>
+      </ul>
+    </section>
+
+    <section id="divisi">
+      <h1 class="text-primary">Struktur</h1>
+      <p>HMIF Unand berdiri dengan struktur kepengurusan sebagai berikut:</p>
+
+      <!-- Divisi Placeholder -->
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="divisi-icon">
+                        <div class="circle-placeholder">
+                            <img src="img/DPP.png" alt="DPP" />
+                        </div>
+                    </div>
+                    <h5 class="card-title mt-3"><strong>DPP</strong></h5>
+                    <p class="card-text">Dewan Penasihat Pengurus: Memiliki tugas dan wewenang untuk mengevaluasi kinerja kepengurusan HMIF.</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="divisi-icon">
+                        <div class="circle-placeholder">
+                            <img src="img/Bintang 1.png" alt="Inti" />
+                        </div>
+                    </div>
+                    <h5 class="card-title mt-3"><strong>Presidium Inti</strong></h5>
+                    <p class="card-text">Terdiri atas ketua, wakil ketua, sekretaris umum, serta bendahara umum. Bertugas menjadi pemimpin strategis, memiliki tanggung jawab dalam mengontrol kinerja setiap bagian himpunan.</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="divisi-icon">
+                        <div class="circle-placeholder">
+                            <img src="img/PSDM.png" alt="HRDP" />
+                        </div>
+                    </div>
+                    <h5 class="card-title mt-3"><strong>Divisi HRD</strong></h5>
+                    <p class="card-text">Human Resources Development: Mewadahi peningkatan kompetensi dan pengembangan kemampuan non-teknis serta pelaksanaan kaderisasi mahasiswa/i Departemen Informatika.</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="divisi-icon">
+                        <div class="circle-placeholder">
+                            <img src="img/hmif.png" alt="Adkesma" />
+                        </div>
+                    </div>
+                    <h5 class="card-title mt-3"><strong>Divisi Adkesma</strong></h5>
+                    <p class="card-text">Advokasi dan Kesejahteraan Masyarakat: Jembatan antara mahasiswa/i dan pihak kampus dalam menyampaikan aspirasi,
+                      menangani masalah akademis dan non-akademis, serta memperjuangkan kesejahteraan mahasiswa/i.</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="divisi-icon">
+                        <div class="circle-placeholder">
+                            <img src="img/Infomed.png" alt="Infomed" />
+                        </div>
+                    </div>
+                    <h5 class="card-title mt-3"><strong>Divisi Infomed</strong></h5>
+                    <p class="card-text">Information Media: Mengelola dan menyebarkan informasi terkait kegiatan, prestasi, dan program-program yang ada di HMIF,
+                      serta memperkuat citra posisitf organisasi melalui media sosial.</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div class="divisi-icon">
+                        <div class="circle-placeholder">
+                            <img src="img/PR.png" alt="Internal" />
+                        </div>
+                    </div>
+                    <h5 class="card-title mt-3"><strong>Divisi Internal</strong></h5>
+                    <p class="card-text">Memelihara hubungan yang harmonis di antara warga HMIF melalui kegiatan yang menumbuhkan kebersamaan dan memperkuat solidaritas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100">
+              <div class="card-body text-center">
+                  <div class="divisi-icon">
+                      <div class="circle-placeholder">
+                          <img src="img/PR.png" alt="Eksternal" />
+                      </div>
+                  </div>
+                  <h5 class="card-title mt-3"><strong>Divisi Eksternal</strong></h5>
+                  <p class="card-text">Jembatan penghubung HMIF dengan dunia luar. Elsternal siap memperluas jaringan, menciptakan kerjasama baru, dan menghadapi tantangan dengan strategi yang cerdas.</p>
+              </div>
+          </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <div class="divisi-icon">
+                    <div class="circle-placeholder">
+                        <img src="img/Entrepreneur.png" alt="Entrepreneur" />
+                    </div>
+                </div>
+                <h5 class="card-title mt-3"><strong>Divisi Entrepreneur</strong></h5>
+                <p class="card-text">Fokus dalam pengembangan wirausaha dan bertujuan untuk mewadahi serta Mahasiswa/i Departemen Informatika yang ingin menjalankan kegiatan kewirausahaan.</p>
+            </div>
+        </div>
+    </div>
+
+      </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

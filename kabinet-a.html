@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kabinet Budi Utomo (2023/2024) - Pengurus</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* --- Gaya Umum --- */
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #00C0C6, #1A2B56);
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    section {
+        padding: 30px;
+    }
+
+    /* --- Placeholder (Header Dropdown) --- */
+    .placeholder {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0;
+        background-color: #FFFFFF;
+        border: 1px solid #AAAAAA;
+        border-radius: 4px;
+        color: #1A2B56;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        position: relative;
+        transition: background-color 0.3s, color 0.3s;
+        opacity: 0.85; /* Pastikan opacity adalah 1 */
+        z-index: 1; /* Opsional, jika ada elemen overlay */
+    }
+
+    .placeholder:hover {
+        background-color: #00C0C6;
+        color: #FFFFFF;
+    }
+
+    /* --- Photo Holder --- */
+    .photo-holder {
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 15px;
+        border: 2px solid #AAAAAA;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .photo-holder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* --- Dropdown Content --- */
+    .team-dropdown .dropdown-content {
+        display: none;
+        margin-top: 10px;
+        background-color: #FFFFFF;
+        border: 1px solid #AAAAAA;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        color: #1A2B56;
+        position: relative; /* Ubah ke relative */
+        top: auto; /* Hilangkan properti top */
+        left: auto; /* Hilangkan properti left */
+        width: 100%;
+    }
+    .team-dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content .dropdown-item {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dropdown-content .dropdown-item:hover {
+        background-color: #00C0C6;
+        color: #FFFFFF;
+    }
+
+    .dropdown-content .dropdown-item:last-child {
+        border-bottom: none;
+    }
+
+    /* --- Arrow --- */
+    .arrow {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform 0.3s ease;
+    }
+
+    .arrow.open {
+        transform: translateY(-50%) rotate(180deg);
+    }
+
+    /* --- Efek Dekoratif (Lingkaran Animasi) --- */
+    .decorative-circle {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.3;
+        animation: float 6s infinite ease-in-out;
+    }
+
+    .circle-1 {
+        width: 300px;
+        height: 300px;
+        background-color: #FFFFFF;
+        top: -50px;
+        left: -50px;
+        animation-delay: 0s;
+    }
+
+    .circle-2 {
+        width: 400px;
+        height: 400px;
+        background-color: #AAAAAA;
+        bottom: -100px;
+        right: -50px;
+        animation-delay: 1s;
+    }
+
+    .circle-3 {
+        width: 150px;
+        height: 150px;
+        background-color: #00C0C6;
+        top: 20%;
+        right: 20%;
+        animation-delay: 2s;
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(15px);
+        }
+    }
+
+    /* --- Judul Utama --- */
+    .bu-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #FFFFFF;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* Navbar */
+    .navbar-dark .navbar-nav .nav-link {
+      color: #FFFFFF;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: #00C0C6;
+      text-shadow: 0 0 5px #00C0C6;
+    }
+
+    /* --- Navbar Dropdown --- */
+    .navbar-dark .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .navbar-dark .navbar-nav .nav-item.dropdown .dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: #FFFFFF;
+        border-radius: 5px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        color: #1A2B56;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .navbar-dark .navbar-nav .nav-item .dropdown-menu .dropdown-item {
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .navbar-dark .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
+        background-color: #00C0C6;
+        color: #FFFFFF;
+    }
+
+    .arrow-divisi {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.3s ease;
+    }
+
+    .arrow-divisi.open {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    /* --- Footer --- */
+    footer {
+        background-color: #000;
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+        margin-top: auto;
+    }
+
+    footer a {
+        color: #FFF;
+        margin: 0 0.5rem;
+        font-size: 1.25rem;
+        transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+        color: #00C0C6;
+    }
+
+    /* --- Responsivitas --- */
+    @media (max-width: 768px) {
+        .placeholder {
+            font-size: 14px;
+        }
+
+        .photo-holder {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .bu-title {
+            font-size: 1.5rem;
+        }
+
+        footer {
+            font-size: 0.9rem;
+        }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #1A2B56;">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+        <img src="img/hmif.png" alt="Logo HMIF" style="height: 40px; margin-right: 10px;">
+        HMIF Unand
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Beranda</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="tentangDropdown" role="button" data-bs-toggle="dropdown">
+              Tentang
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="tentang.html#sejarah">Sejarah</a></li>
+              <li><a class="dropdown-item" href="tentang.html#visi-misi">Visi dan Misi</a></li>
+              <li><a class="dropdown-item" href="tentang.html#divisi">Struktur</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="pengurus.html" id="tentangDropdown" role="button" data-bs-toggle="dropdown">
+              Pengurus
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="kabinet-a.html">Kabinet Budi Utomo (2023/2024)</a></li>
+              <li><a class="dropdown-item" href="edelweiss.html">Kabinet Edelweiss (2024/2025)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link" href="publikasi.html">Publikasi</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Decorative Shapes -->
+  <div class="decorative-circle circle-1"></div>
+  <div class="decorative-circle circle-2"></div>
+  <div class="decorative-circle circle-3"></div>
+
+  <!-- Halaman Pengurus Kabinet A -->
+  <section class="container mt-5">
+    <h1 class="bu-title">Pengurus Kabinet Budi Utomo (2023/2024)</h1>
+
+    <div class="dropdown team-dropdown">
+      <div class="placeholder">
+        <div class="photo-holder">
+          <img src="img/pengurus.png" alt="DPP">
+        </div>
+        <div>
+          <h2>Dewan Penasihat Pengurus</h2>
+          <p>Irfan Firmansyah</p>
+        </div>
+        <span class="arrow-divisi">&#x25BC;</span>
+      </div>
+      <div class="dropdown-content">
+        <div class="dropdown-item">
+          <div class="photo-holder">
+            <img src="img/pengurus.png" alt="DPP">
+          </div>
+          <div>
+            <h2>Anggota DPP</h2>
+            <p>Rafano Alexander</p>
+          </div>
+        </div>
+      </div>
+
+    <div class="dropdown">
+      <div class="placeholder">
+        <div class="photo-holder">
+          <img src="img/pengurus.png" alt="Foto Ketua">
+        </div>
+        <div>
+          <h2>Ketua</h2>
+          <p>Poalca Valusio</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <div class="placeholder">
+        <div class="photo-holder">
+          <img src="img/pengurus.png" alt="Foto Wakil">
+        </div>
+        <div>
+          <h2>Wakil Ketua</h2>
+          <p>Zaghlul Dinilhaq</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <div class="placeholder">
+        <div class="photo-holder">
+          <img src="img/pengurus.png" alt="Foto Sekretaris">
+        </div>
+        <div>
+          <h2>Sekretaris Umum</h2>
+          <p>Octavio Yusda Wildani</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <div class="placeholder">
+        <div class="photo-holder">
+          <img src="img/pengurus.png" alt="Foto Bendahara">
+        </div>
+        <div>
+          <h2>Bendahara Umum</h2>
+          <p>Dhiya Safira Andini</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown team-dropdown">
+      <div class="placeholder">
+        <div class="photo-holder">
+          <img src="img/pengurus.png" alt="Foto Koor HRD">
+        </div>
+        <div>
+          <h2>Koordinator Human Resources Development</h2>
+          <p>Khoiri Putra Mujiza</p>
+        </div>
+        <span class="arrow-divisi">&#x25BC;</span>
+      </div>
+      <div class="dropdown-content">
+        <div class="dropdown-item">
+          <div class="photo-holder">
+            <img src="img/pengurus.png" alt="Anggota HRD 1">
+          </div>
+          <div>
+            <h2>Anggota HRD</h2>
+            <p>Humayra Fahreri</p>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <div class="photo-holder">
+            <img src="img/pengurus.png" alt="Anggota HRD 2">
+          </div>
+          <div>
+            <h2>Anggota HRD</h2>
+            <p>Zaky Adil Hakim</p>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <div class="photo-holder">
+            <img src="img/pengurus.png" alt="Anggota HRD 3">
+          </div>
+          <div>
+            <h2>Anggota HRD</h2>
+            <p>Muhammad Al Hafiz</p>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <div class="photo-holder">
+            <img src="img/pengurus.png" alt="Anggota HRD 3">
+          </div>
+          <div>
+            <h2>Anggota HRD</h2>
+            <p>M. Riedho Ramadhan S.</p>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <div class="photo-holder">
+            <img src="img/pengurus.png" alt="Anggota HRD 3">
+          </div>
+          <div>
+            <h2>Anggota HRD</h2>
+            <p>Ryan Al Ghifari</p>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <div class="photo-holder">
+            <img src="img/pengurus.png" alt="Anggota HRD 3">
+          </div>
+          <div>
+            <h2>Anggota HRD</h2>
+            <p>Yusuf Fatha Mubina Alexander</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown team-dropdown">
+      <div class="placeholder">
+        <div class="photo-holder">
+          <img src="img/pengurus.png" alt="Foto Koor HRD">
+        </div>
+        <div>
+          <h2>Koordinator Public Relations</h2>
+          <p>Muhammad Zaki Al Hafiz</p>
+        </div>
+        <span class="arrow-divisi">&#x25BC;</span>
+      </div>
+      <div class="dropdown-content">
+        <div class="dropdown-item">
+          <div class="photo-holder">
+            <img src="img/pengurus.png" alt="Anggota HRD 1">
+          </div>
+          <div>
+            <h2>Anggota PR</h2>
+            <p>Aziza Syakira</p>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <div class="photo-holder">
+            <img src="img/pengurus.png" alt="Anggota HRD 2">
+          </div>
+          <div>
+            <h2>Anggota PR</h2>
+            <p>Bima Prakasa</p>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <div class="photo-holder">
+            <img src="img/pengurus.png" alt="Anggota HRD 2">
+          </div>
+          <div>
+            <h2>Anggota PR</h2>
+            <p>Muhammad Fadhil Hamdi</p>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <div class="photo-holder">
+            <img src="img/pengurus.png" alt="Anggota HRD 2">
+          </div>
+          <div>
+            <h2>Anggota PR</h2>
+            <p>Naufal Dira Agustian</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="dropdown team-dropdown">
+      <div class="placeholder">
+        <div class="photo-holder">
+          <img src="img/pengurus.png" alt="Foto Koor HRD">
+        </div>
+        <div>
+          <h2>Koordinator Information Media</h2>
+          <p>Rahmad Dwirizki Olders</p>
+        </div>
+        <span class="arrow-divisi">&#x25BC;</span>
+      </div>
+      <div class="dropdown-content">
+        <div class="dropdown-item">
+          <div class="photo-holder">
+            <img src="img/pengurus.png" alt="Anggota HRD 1">
+          </div>
+          <div>
+            <h2>Anggota Infomed</h2>
+            <p>Muhammad Zhafarul Maahiy</p>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <div class="photo-holder">
+            <img src="img/pengurus.png" alt="Anggota HRD 2">
+          </div>
+          <div>
+            <h2>Anggota Infomed</h2>
+            <p>Muhammad Muayyadillah</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown team-dropdown">
+      <div class="placeholder">
+        <div class="photo-holder">
+          <img src="img/pengurus.png" alt="Foto Koor HRD">
+        </div>
+        <div>
+          <h2>Koordinator Entrepreneur</h2>
+          <p>Fadjrie Yaumil Fadhli</p>
+        </div>
+        <span class="arrow-divisi">&#x25BC;</span>
+      </div>
+      <div class="dropdown-content">
+        <div class="dropdown-item">
+          <div class="photo-holder">
+            <img src="img/pengurus.png" alt="Anggota HRD 1">
+          </div>
+          <div>
+            <h2>Anggota Entrepreneur</h2>
+            <p>Rehan Khairuno</p>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <div class="photo-holder">
+            <img src="img/pengurus.png" alt="Anggota HRD 2">
+          </div>
+          <div>
+            <h2>Anggota Entrepreneur</h2>
+            <p>Najwa Azka Thalita Mehdi</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 HMIF Unand. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.querySelectorAll('.team-dropdown .placeholder').forEach(placeholder => {
+    placeholder.addEventListener('click', (e) => {
+        e.stopPropagation(); // Mencegah event bubbling
+
+        // Toggle dropdown yang diklik
+        const dropdownContent = placeholder.nextElementSibling;
+        const arrow = placeholder.querySelector('.arrow-divisi');
+
+        if (dropdownContent.style.display === 'block') {
+            dropdownContent.style.display = 'none';
+            arrow.classList.remove('open');
+        } else {
+            // Tutup dropdown lain
+            document.querySelectorAll('.dropdown-content').forEach(content => content.style.display = 'none');
+            document.querySelectorAll('.arrow-divisi').forEach(arrow => arrow.classList.remove('open'));
+
+            // Buka dropdown saat ini
+            dropdownContent.style.display = 'block';
+            arrow.classList.add('open');
+        }
+    });
+});
+
+// Klik di luar dropdown untuk menutup
+document.addEventListener('click', () => {
+    document.querySelectorAll('.dropdown-content').forEach(content => content.style.display = 'none');
+    document.querySelectorAll('.arrow-divisi').forEach(arrow => arrow.classList.remove('open'));
+});
+  </script>
+</body>
+</html>

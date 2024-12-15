@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publikasi HMIF Unand</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #00C0C6, #1A2B56);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 0;
+      background-size: 100%;
+    }
+
+    main {
+      flex: 1;
+      padding: 40px 0; /* Sesuaikan padding atas dan bawah */
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    h1 {
+      font-weight: 600;
+      text-align: center;
+      margin-top: 40px; /* Mengurangi jarak atas untuk h1 */
+      margin-bottom: 20px; /* Jarak bawah agar lebih rapat */
+      font-size: 2.5rem;
+      color: #fff;
+    }
+
+    .dropdown-item:hover {
+      background-color: #00C0C6; 
+      color: white;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* --- Efek Dekoratif (Lingkaran Animasi) --- */
+    .decorative-circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .circle-1 {
+      width: 300px;
+      height: 300px;
+      background-color: #FFFFFF;
+      top: -50px;
+      left: -50px;
+      animation-delay: 0s;
+    }
+
+    .circle-2 {
+      width: 400px;
+      height: 400px;
+      background-color: #AAAAAA;
+      bottom: -100px;
+      right: -50px;
+      animation-delay: 1s;
+    }
+
+    .circle-3 {
+      width: 150px;
+      height: 150px;
+      background-color: #00C0C6;
+      top: 20%;
+      right: 20%;
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+          transform: translateY(0);
+      }
+      50% {
+          transform: translateY(15px);
+      }
+    }
+
+    /* Navbar */
+    .navbar-dark .navbar-nav .nav-link {
+      color: #FFFFFF;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: #00C0C6;
+      text-shadow: 0 0 5px #00C0C6;
+    }
+
+    footer {
+      background-color: #000;
+      color: white;
+      padding: 1rem 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    footer a {
+      color: #FFF;
+      margin: 0 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    footer a:hover {
+      color: #00C0C6;
+    }
+
+    .publikasi-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .card {
+      background-color: #1A2B56;
+      border-radius: 10px;
+      width: 300px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 20px;
+      color: #fff;
+    }
+
+    .card-body h5 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .card-body p {
+      font-size: 1rem;
+      color: #bbb;
+    }
+
+    .card-body a {
+      color: #00C0C6;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .card-body a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Responsivitas --- */
+    @media (max-width: 768px) {
+      .placeholder {
+        font-size: 14px;
+      }
+
+      .photo-holder {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+      }
+
+      footer {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #1A2B56;">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+        <img src="img/hmif.png" alt="Logo HMIF" style="height: 40px; margin-right: 10px;">
+        HMIF Unand
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Beranda</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="tentangDropdown" role="button" data-bs-toggle="dropdown">
+              Tentang
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="tentang.html#sejarah">Sejarah</a></li>
+              <li><a class="dropdown-item" href="tentang.html#visi-misi">Visi dan Misi</a></li>
+              <li><a class="dropdown-item" href="tentang.html#divisi">Struktur</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="pengurus.html" id="tentangDropdown" role="button" data-bs-toggle="dropdown">
+              Pengurus
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="kabinet-a.html">Kabinet Budi Utomo (2023/2024)</a></li>
+              <li><a class="dropdown-item" href="edelweiss.html">Kabinet Edelweiss (2024/2025)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link" href="publikasi.html">Publikasi</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Decorative Shapes -->
+  <div class="decorative-circle circle-1"></div>
+  <div class="decorative-circle circle-2"></div>
+  <div class="decorative-circle circle-3"></div>
+
+  <!-- Publikasi Content -->
+  <main class="container my-5">
+    <h1 class="publikasi-title text-white">Publikasi</h1>
+
+    <div class="card-container">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="img/hmif.png" alt="Artikel 1">
+        <div class="card-body">
+          <h5 class="card-title">Indonesia AI Day 2024: Meningkatkan Kedaulatan Kecerdasan Buatan di Indonesia</h5>
+          <p class="card-text">Berita tentang Indonesia AI Day yang diselenggarakan pada 13 Desember 2024, membahas tentang pentingnya kedaulatan kecerdasan buatan di Indonesia.</p>
+          <a href="#">Baca Selengkapnya</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="img/hmif.png" alt="Artikel 2">
+        <div class="card-body">
+          <h5 class="card-title">Informatika Unand Berkunjung ke Malaysia untuk Mengikuti Program Mobilitas Inbound</h5>
+          <p class="card-text">Informatika Unand mengirimkan delegasi ke Malaysia untuk mengikuti program mobilitas ke Universiti Malaya sebagai bagian dari peningkatan kolaborasi internasional.</p>
+          <a href="#">Baca Selengkapnya</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="img/hmif.png" alt="Artikel 3">
+        <div class="card-body">
+          <h5 class="card-title">Seminar Nasional Teknologi dan Inovasi 2024</h5>
+          <p class="card-text">Mengupas berbagai inovasi teknologi terbaru yang berpotensi mengubah dunia di masa depan. Seminar ini berlangsung pada 15 Desember 2024.</p>
+          <a href="#">Baca Selengkapnya</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 HMIF Unand. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
